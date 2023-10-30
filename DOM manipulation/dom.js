@@ -1,7 +1,6 @@
 //console.log(document);
 
 //console.log(document.title);
-
 let header=document.getElementById('header-title');
 
 //console.log(header.textContent='hello')
@@ -18,7 +17,7 @@ let additem=document.getElementById('titleid');
 additem.style.fontWeight="bold"; 
 additem.style.color='green'
 
-//console.log(additem);
+//console.log(header);
 
 //--------------------------getElementsByClassName----------
 
@@ -30,5 +29,14 @@ for(let i=0;i<items.length;i++){
     items[i].style.fontWeight="bold"
 }
 
-console.log(items[2]);
+console.log(items);
+
+//--------------------------getElementsByTagName----------
+
+let li=document.getElementsByTagName('li');
+
+li[4].style.backgroundColor="yellow"
+
+console.log(li);
+
 
