@@ -31,8 +31,6 @@ function buttonfun(e){
     //     name: name,
     //     phonenumber: phone,
     //     description:desc
-
-
     // };
     
     // // changing object to string to store in local storage
@@ -53,12 +51,14 @@ function buttonfun(e){
     // console.log(localStorage);
 
 
-    //-----    adds multiple userr in local storage---------
+    // //-----    adds multiple userr in local storage---------
+
+
+
       let myobject ={
         name: name,
         phonenumber: phone,
         description:desc
-
 
     };
 
@@ -81,22 +81,37 @@ function buttonfun(e){
     // let textnode=document.createTextNode('hello');
     // display.appendChild(textnode);
 
+    // get ul tag to append to childnode
+    let ultag=document.getElementById('ulid');
+    let display=document.createElement('li')  //created li tag inside ul tag like <li></li>
 
-    let display=document.getElementById('lid');
-    let textnode=document.createTextNode("["+name+"-"+phone+"-"+desc+"]");
-    display.appendChild(textnode);
+    let textnode=document.createTextNode(name+"-"+phone+"-"+desc);//created textnode display content<li>name+"-"+phone+"-"+desc</li
+    display.appendChild(textnode);      // append to text content into li tag
 
+    let deletebtn=document.createElement('button');         // creating delete button <button></button>
+    deletebtn.addEventListener('click',del);
+   // deletebtn.onclick=del;
+
+    deletebtn.id="deleteid";                                // add id to delete button <button id="deleteid"></button>
+    let textnodedelete=document.createTextNode("Delete");   //create text delete 
+    deletebtn.appendChild(textnodedelete);                  // delete value append to element <button id="deleteid">Delete</button>
+
+    display.appendChild(deletebtn);                         //append delete button inside li tag.
+
+    //console.log(deletebtn)    
     
 
 
+    function del(){
+       // console.log('delete button clicked')
+        let dells=localStorage.removeItem(name);
+       // console.log(localStorage.removeItem(name))
+        let getchilditem=document.getElementById('ulid');
+        getchilditem.removeChild(display)
+        
+        
+    };
+
+    ultag.appendChild(display); 
     
-
-
-
-    console.log(display);
-    
-
-
 }
-
-
