@@ -81,7 +81,6 @@ function buttonfun(e){
     // let textnode=document.createTextNode('hello');
     // display.appendChild(textnode);
 
-    // form.appendChild(display)
 
     let display=document.getElementById('lid');
     let textnode=document.createTextNode("["+name+"-"+phone+"-"+desc+"]");
