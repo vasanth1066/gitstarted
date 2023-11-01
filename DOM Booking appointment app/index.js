@@ -27,30 +27,75 @@ function buttonfun(e){
 
     //-------storing data in object--------
 
-    let myobject ={
+    // let myobject ={
+    //     name: name,
+    //     phonenumber: phone,
+    //     description:desc
+
+
+    // };
+    
+    // // changing object to string to store in local storage
+    // // because  we cannot store data as object in local storage though 
+    // //we converting  it to an string
+
+    // let myobject_serliaized=JSON.stringify(myobject);
+
+    // localStorage.setItem ('myobject',myobject_serliaized);  // object are stored in local storaage 
+
+
+    // //retreieving the object form localstorage
+    // var myobject_deserliaized = JSON.parse(localStorage.getItem('myobject'));
+
+   
+    // console.log(myobject_deserliaized);
+   
+    // console.log(localStorage);
+
+
+    //-----    adds multiple userr in local storage---------
+      let myobject ={
         name: name,
         phonenumber: phone,
         description:desc
 
 
     };
-    
-    // changing object to string to store in local storage
-    // because  we cannot store data as object in local storage though 
-    //we converting  it to an string
+
 
     let myobject_serliaized=JSON.stringify(myobject);
 
-    localStorage.setItem ('myobject',myobject_serliaized);  // object are stored in local storaage 
+    localStorage.setItem (name,myobject_serliaized);  // object are stored in local storaage 
 
 
     //retreieving the object form localstorage
-    var myobject_deserliaized = JSON.parse(localStorage.getItem('myobject'));
+    var myobject_deserliaized = JSON.parse(localStorage.getItem(name));
 
-   
     console.log(myobject_deserliaized);
-   
-    console.log(localStorage);
+
+    //dispalay in page
+
+    // let display=document.createElement('label');
+    // display.id='displayid';
+
+    // let textnode=document.createTextNode('hello');
+    // display.appendChild(textnode);
+
+    // form.appendChild(display)
+
+    let display=document.getElementById('lid');
+    let textnode=document.createTextNode("["+name+"-"+phone+"-"+desc+"]");
+    display.appendChild(textnode);
+
+    
+
+
+    
+
+
+
+    console.log(display);
+    
 
 
 }
