@@ -112,6 +112,39 @@ function buttonfun(e){
         
     };
 
+    let editbutton=document.createElement('button');
+    editbutton.onclick=edit;
+    editbutton.id='editid';
+    let textnodeedit=document.createTextNode('Edit');
+    editbutton.appendChild(textnodeedit)
+
+    function edit(){
+       // console.log('edit button clicked')
+        localStorage.removeItem(name);
+        let nametext=document.getElementById('textid')
+        let phonetext=document.getElementById('phoneid')
+        let desctex=document.getElementById('descid')
+        
+        nametext.value=name;
+        phonetext.value=phone;
+        desctex.value=desc;
+
+        let getchilditemedit=document.getElementById('ulid');
+        getchilditemedit.removeChild(display)
+
+
+
+        console.log(nametext);
+        console.log('----');
+        console.log(name);
+
+
+
+    }
+
+    display.appendChild(editbutton)
+
+
     ultag.appendChild(display); 
     
 }
