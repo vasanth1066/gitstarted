@@ -22,27 +22,19 @@ function buttonfun(e){
 
     };
 
-    var getuserdataoncrudcrud;
     async function crud(){
         await axios.post("https://crudcrud.com/api/6af766f3596a406ebfd3b22b97f7f703/appoinmentdata",myobject)
         .then(response =>{
             console.log(response)
             showuserdetails(response.data)
         })
-        .catch(err =>{console.log(err)})
-
-        getuserdataoncrudcrud=await axios.get("https://crudcrud.com/api/6af766f3596a406ebfd3b22b97f7f703/appoinmentdata")
-        .then(respons =>{
-            console.log(respons)
-        })
-        .catch(err =>{console.log(err)})    
-
-        console.log('getuserdataoncrudcrud',getuserdataoncrudcrud)
-        
+        .catch(err =>{console.log(err)})         
         
     }
     crud();
 
+    
+    
     
 
 
@@ -56,8 +48,22 @@ function buttonfun(e){
 
     // get ul tag to append to childnode
 
-    function showuserdetails(res){
-        let ultag=document.getElementById('ulid');
+    
+}
+window.addEventListener("DOMContentLoaded",() =>{
+    axios.get("https://crudcrud.com/api/6af766f3596a406ebfd3b22b97f7f703/appoinmentdata")
+.then(respons =>{
+    console.log(respons)
+    for(var i=0;i<respons.data.length;i++){
+        showuserdetails(respons.data[i])
+    }
+})
+.catch(err =>{console.log(err)})   
+
+})
+
+function showuserdetails(res){
+    let ultag=document.getElementById('ulid');
     let display=document.createElement('li')  //created li tag inside ul tag like <li></li>
 
     let textnode=document.createTextNode(res.name+"-"+res.phonenumber+"-"+res.mail);//created textnode display content<li>name+"-"+phone+"-"+desc</li
@@ -79,7 +85,6 @@ function buttonfun(e){
 
     function del(){
        // console.log('delete button clicked')
-        let dells=localStorage.removeItem(name);
        // console.log(localStorage.removeItem(name))
         let getchilditem=document.getElementById('ulid');
         getchilditem.removeChild(display)
@@ -95,20 +100,16 @@ function buttonfun(e){
 
     function edit(){
        // console.log('edit button clicked')
-        localStorage.removeItem(name);
         let nametext=document.getElementById('textid')
         let phonetext=document.getElementById('phoneid')
         let emailtext=document.getElementById('emailid')
         
-        nametext.value=name;
-        phonetext.value=phone;
-        emailtext.value=email;
+        nametext.value=res.name;
+        phonetext.value=res.phonenumber;
+        emailtext.value=res.mail;
 
         let getchilditemedit=document.getElementById('ulid');
         getchilditemedit.removeChild(display)
-
-
-
     }
 
     display.appendChild(editbutton)
@@ -117,5 +118,3 @@ function buttonfun(e){
     ultag.appendChild(display); 
     
     }
-    
-}
