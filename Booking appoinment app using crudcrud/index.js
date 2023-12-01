@@ -23,7 +23,7 @@ function buttonfun(e){
     };
 
     async function crud(){
-        await axios.post("https://crudcrud.com/api/6af766f3596a406ebfd3b22b97f7f703/appoinmentdata",myobject)
+        await axios.post("https://crudcrud.com/api/5dca1fc2bb6141529271308eb2acd64a/appoinmentdata",myobject)
         .then(response =>{
             console.log(response)
             showuserdetails(response.data)
@@ -51,9 +51,9 @@ function buttonfun(e){
     
 }
 window.addEventListener("DOMContentLoaded",() =>{
-    axios.get("https://crudcrud.com/api/6af766f3596a406ebfd3b22b97f7f703/appoinmentdata")
+    axios.get("https://crudcrud.com/api/5dca1fc2bb6141529271308eb2acd64a/appoinmentdata")
 .then(respons =>{
-    console.log(respons)
+    // console.log(respons)
     for(var i=0;i<respons.data.length;i++){
         showuserdetails(respons.data[i])
     }
@@ -88,7 +88,13 @@ function showuserdetails(res){
        // console.log(localStorage.removeItem(name))
         let getchilditem=document.getElementById('ulid');
         getchilditem.removeChild(display)
-        
+
+        let userid=res._id;
+        axios.delete(`https://crudcrud.com/api/5dca1fc2bb6141529271308eb2acd64a/appoinmentdata/${userid}`,)
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(err =>{console.log(err)})          
         
     };
 
@@ -110,6 +116,7 @@ function showuserdetails(res){
 
         let getchilditemedit=document.getElementById('ulid');
         getchilditemedit.removeChild(display)
+
     }
 
     display.appendChild(editbutton)
