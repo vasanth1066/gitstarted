@@ -90,7 +90,7 @@ function showuserdetails(res){
         getchilditem.removeChild(display)
 
         let userid=res._id;
-        axios.delete(`https://crudcrud.com/api/5dca1fc2bb6141529271308eb2acd64a/appoinmentdata/${userid}`,)
+        axios.delete(`https://crudcrud.com/api/5dca1fc2bb6141529271308eb2acd64a/appoinmentdata/${userid}`)
         .then(response =>{
             console.log(response)
         })
@@ -99,7 +99,7 @@ function showuserdetails(res){
     };
 
     let editbutton=document.createElement('button');
-    editbutton.onclick=edit;
+    editbutton.addEventListener('click',edit);
     editbutton.id='editid';
     let textnodeedit=document.createTextNode('Edit');
     editbutton.appendChild(textnodeedit)
@@ -116,6 +116,18 @@ function showuserdetails(res){
 
         let getchilditemedit=document.getElementById('ulid');
         getchilditemedit.removeChild(display)
+
+        let edituserid=res._id;
+        axios.patch(`https://crudcrud.com/api/5dca1fc2bb6141529271308eb2acd64a/appoinmentdata/${edituserid}`,this.myobject)
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(err =>{console.log(err)})  
+        axios.delete(`https://crudcrud.com/api/5dca1fc2bb6141529271308eb2acd64a/appoinmentdata/${edituserid}`,this.myobject)
+        .then(response =>{
+            console.log(response)
+        })
+        .catch(err =>{console.log(err)})
 
     }
 
