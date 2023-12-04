@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Admin page</title>
+</head>
+<body>
+    <label> Selling Price : </label>
+    <input type="text" id="sellingpriceid">
+    <lable>Product Name : </lable>
+    <input type="text" id="productnameid">
+    <label>Choose a Category</label>
+    <select name="items" id="categoryid">
+        <option value="Electronic">Electronic</option>
+        <option value="Food">Food</option>
+        <option value="Skincare">Skin care</option>
+    </select>
+    <input type="button" id="addproductid" value="Add Product" class="btn btn-primary">
+
+    <h1> Products</h1>
+    <h3>Electronic Items</h3>
+    <ul id="electronicid">
+
+    </ul>
+    <h3>Food Items</h3>
+    <ul id="foodid">
+
+    </ul>
+    <h3>SkinCare Items</h3>
+    <ul id="skincareid">
+
+    </ul>
+    <script src="index.js"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+
+</body>
+</html>
